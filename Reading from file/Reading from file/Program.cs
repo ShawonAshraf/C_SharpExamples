@@ -21,7 +21,11 @@ namespace Reading_from_file
                 file = new FileStream("Data.txt", FileMode.Open, FileAccess.Read);
                 reader = new StreamReader(file);
 
-                data += reader.ReadLine(); // in case of multiple lines of data, we choose to append them
+                string x;
+                while ((x = reader.ReadLine()) != null)
+                {
+                    data += x;
+                }
 
                 reader.Close();
                 file.Close();
